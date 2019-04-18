@@ -20,7 +20,23 @@ app.use(cookieParser());
 const users = require("./users.js");
 app.use("/api/users", users.routes);
 
+
+const multer = require('multer')
+const upload = multer({
+  dest: '/var/www/cp5.hiltonivonne.com/images/',
+  limits: {
+    fileSize: 10000000
+  }
+});
+
 //const photos = require("./photos.js");
 //app.use("/api/photos", photos.routes);
+// const multer = require('multer')
+// const upload = multer({
+//   dest: '/var/www/cp5.hiltonivonne.com/',
+//   limits: {
+//     fileSize: 10000000
+//   }
+// });
 
 app.listen(3005, () => console.log('Server listening on port 3005!'));
